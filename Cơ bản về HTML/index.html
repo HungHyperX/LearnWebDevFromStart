@@ -1,0 +1,136 @@
+<!-- CƠ BẢN VỀ HTML -->
+
+<!DOCTYPE html> 
+ <!-- Định nghĩa DOCTYPE -->
+<html lang="vi">
+    <head>
+        <title> Ngon </title>
+        <meta charset="utf-8">
+    </head>
+
+    <body>
+
+        <!-- cơ bản -->
+        Hello World!!!
+        <h1>Tiêu đề cấp 1 </h1>
+        <p> Đây là một đoạn văn bản 
+            <br> Đây là xuống dòng <hr>
+            Đây là văn bản dưới dòng. 
+            <br>
+        </p>
+        <!--*************************-->
+
+        <!-- HTML nâng cao -->
+        <!-- HTML Forms -->
+        <!-- Validation và Constraints (Xác nhận và Ràng buộc)-->
+        <form>
+            <label for="email">Email: </label>
+            <input type="email" id="email" required pattern="[a-z0-9._%+-]
+            +@[a-z0-9.-]+/.[a-z]{2,}$">
+            <!--pattern định nghĩa 1 biểu thức để ktra hợp lệ
+            type="email" đánh dấu ô đầu vào là địa chỉ email hợp lệ
+            type="date" "color" "range"-->
+            <button type="submit">Submit</button>
+        </form>
+        <!--*************************--> 
+
+        <!-- HTML Multimedia -->
+        <!-- Audio và Video -->
+        <audio controls>
+            <source src="audio" type="audio/mpeg">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+        </audio>      
+        
+        <!-- Ảnh và ảnh động -->
+        <img src="image.jpg" alt="Ngoon">
+        <img src="animated.gif" alt="ngoon" width="200" height="200">
+
+        <!-- Semantic Elements (Các phần tử ngữ cảnh) -->
+        <header>
+            <h1>Website Title</h1>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <article>
+            <h2>Article Title</h2>
+            <p>Content of the article goes here</p>
+        </article>
+
+        <!-- HTML Tables -->
+        <table>
+            <tr>
+                <th>Header 1</th>
+                <th>Header 2</th>
+            </tr>
+            <tr>
+                <td>Row 1, Cell 1</td>
+                <td>Row 1, Cell 2</td>
+            </tr>
+            <tr>
+                <td>Row 2, Cell 1</td>
+                <td>Row 2, Cell 2</td>
+            </tr>
+        </table>
+
+        <!-- HTML Drag and Drop -->
+        <div id="draggable" draggable="true">Drag me!</div>
+        <div id="droppable">Drop here!</div>
+
+        <script>
+            const draggableElement = document.getElementById("draggable");
+            const droppableElement = document.getElementById("droppable");
+        
+            draggableElement.ondragstart = (event) => {
+                event.dataTransfer.setData('text/plain', event.target.id);
+            };
+
+            droppableElement.ondragover = (event) => {
+                event.preventDefault();
+            };
+
+            draggableElement.ondrop = (event) => {
+                const id = event.dataTransfer.getData('text');
+                const draggableElement = document.getElementById(id);
+                droppableElement.appendChild(draggableElement);
+                event.dataTransfer.clearData();
+            };
+
+        </script>
+
+        <!-- HTML Canvas -->
+        <canvas id="myCanvas" width="200" height="100"></canvas>
+
+        <script>
+            const canvas = document.getElementById('myCanvas');
+            const ctx = canvas.getContext('2d');
+            ctx.fillStyle = 'green';
+            ctx.fillRect(10, 10, 150, 80);
+        </script>
+
+        <!-- HTML Geolocation (vị trí địa lý)-->
+        <button onclick="getLocation()">Get Location</button>
+
+        <script>
+            function getLocation(){
+                if (navigator.geolocation){
+                    navigator.geolocation.getCurrentPosition(showPosition);
+                }else{
+                    alert('Geolocation is not supported')
+                }
+            }
+
+            function showPosition(position){
+                alert('Latitude: ' + position.coords.latitude +
+                '\nLongitude: ' + position.coords.longitude
+                );
+            }
+        </script>
+
+    </body>
+</html>
